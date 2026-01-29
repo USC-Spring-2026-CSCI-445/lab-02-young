@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import rospy
+import math
 from time import sleep, time
 from turtlebot3_msgs.msg import SensorState
 
@@ -28,10 +29,10 @@ class Cliff:
 
         ######### Your code starts here #########
         # calculation from raw sensor value to distance (Step 3.3 of lab)
-        a = 122.485
-        b = -1.09922
-        distance = a * (raw**b)
-        
+        # a = 122.485
+        # b = -1.09922
+        # distance = a * (raw**b)
+        distance = 9.262307 * math.exp(-0.01240355 * raw) + 0.0921748
         ######### Your code ends here #########
 
         print(f"raw: {raw}\tdistance: {distance}")
